@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Accessible Dialog</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="base.css">
+	<link rel="stylesheet" href="dialog.css">
+</head>
+<body>
+
+	<header>
+		<div class="wrapper">
+			<h1><a href="/">Accessible Dialog</a></h1>
+			<button type="button" aria-label="Open Navigation" class="open-dialog"> <i class="fa fa-bars"></i> </button>
+		</div>
+	</header>
+
+	<div class="dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+		<h1 id="dialog-title">Site Navigation</h1>
+		<p id="dialog-description" class="sr-only">Description goes here</p>
+		<nav>
+			<ul>
+				<li><a href="one.html">Link One</a></li>
+				<li><a href="two.html">Link Two</a></li>
+				<li><a href="three.html">Link Three</a></li>
+			</ul>
+		</nav>
+		<button type="button" aria-label="Close Navigation" class="close-dialog"> <i class="fa fa-times"></i> </button>
+	</div>
+	
+	<div class="wrapper body-wrapper">
+
+		<p><a href="#">View Source</a> | <a href="#">View Source</a> | <a href="#">View Source</a></p>
+
+		<p>Venmo tacos ennui hoodie lomo tousled. Meh irony blue bottle brooklyn paleo. Post-ironic PBR&B blue bottle, iPhone meh ennui forage salvia normcore neutra chicharrones gentrify. Banjo jean shorts selfies, try-hard venmo before they sold out 8-bit gluten-free pinterest sustainable messenger bag you probably haven't heard of them poutine. Scenester farm-to-table craft beer, knausgaard leggings letterpress brunch asymmetrical. Brooklyn you probably haven't heard of them typewriter flannel. Etsy austin venmo, knausgaard green juice squid butcher kombucha literally beard jean shorts VHS tote bag.</p>
+
+		<p>Artisan bushwick pop-up, biodiesel viral semiotics cliche pinterest fingerstache godard lo-fi franzen forage. Hammock narwhal ethical, kogi put a bird on it pork belly bushwick photo booth +1 master cleanse pinterest direct trade vegan tofu. Small batch cold-pressed paleo wolf, skateboard asymmetrical cred vegan pickled pinterest freegan. Man bun portland man braid, thundercats swag keffiyeh scenester semiotics put a bird on it keytar four loko beard pour-over. Meh VHS biodiesel actually poutine, normcore neutra beard narwhal hoodie. Synth sustainable cred meditation health goth tousled. Post-ironic cornhole scenester whatever, authentic bushwick keffiyeh venmo kinfolk chia.</p>
+
+		<p>Sriracha XOXO master cleanse lomo blue bottle, banh mi fashion axe man braid flexitarian. Meggings pug ennui, chambray 8-bit celiac gentrify. Bitters direct trade chia semiotics. Synth fixie mixtape, health goth four dollar toast vinyl 3 wolf moon VHS schlitz. Drinking vinegar letterpress VHS poutine, venmo cronut distillery artisan. Everyday carry craft beer butcher DIY. Normcore affogato chillwave, thundercats banh mi fingerstache keytar pop-up four loko four dollar toast.</p>
+
+	</div>
+	
+	
+
+	<div class="dialog-overlay" tabindex="-1"></div>
+
+    <script src="Dialog.js"></script>
+    <script>
+    	var navDialogEl = document.querySelector('.dialog');
+		var dialogOverlay = document.querySelector('.dialog-overlay');
+		
+		var myDialog = new Dialog(navDialogEl, dialogOverlay);
+		myDialog.addEventListeners('.open-dialog', '.close-dialog');
+    </script>
+</body>
+</html>
