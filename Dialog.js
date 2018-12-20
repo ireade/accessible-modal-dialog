@@ -5,7 +5,7 @@ function Dialog(dialogEl, overlayEl) {
 	this.focusedElBeforeOpen;
 
 	var Dialog = this;
-	
+
 	this.overlayEl.addEventListener('click', function() {
 		Dialog.close();
 	});
@@ -48,7 +48,7 @@ Dialog.prototype.close = function() {
 Dialog.prototype._handleKeyDown = function(e) {
 
 	var Dialog = this;
-	
+
 	if (e.key === undefined) {
 		// polyfill for older browsers using Event.keyCode
 		e.key = e.keyCode === 9 ? 'Tab' : e.keyCode === 27 ? 'Escape' : '';
@@ -86,21 +86,20 @@ Dialog.prototype._handleKeyDown = function(e) {
 		break;
 	}
 
-
 };
 
 
 Dialog.prototype.addEventListeners = function(openDialogSel, closeDialogSel) {
 
 	var Dialog = this;
-	
+
 	// delegate the opening and closing event clicks to the document
 	// rather than adding to each element. this allows for dynamically
 	// created elements to also open/close the dialog.
 	document.addEventListener('click', function(e) {
-		if (e.matches(openDialogSel)) {
+		if ( e.target.matches(openDialogSel) ) {
 			Dialog.open();
-		} else if (e.matches(closeDialogSelg)) {
+		} else if ( e.target.matches(closeDialogSel) ) {
 			Dialog.close();
 		}
 	});
