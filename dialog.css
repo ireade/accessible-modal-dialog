@@ -15,7 +15,9 @@
 	padding: 20px;
 	text-align: center;
 	width: 90%;
+	max-height
 	max-width: 400px;
+	overflow: scroll;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -39,3 +41,6 @@
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
+.has-dialog {
+	overflow: hidden;
+}
