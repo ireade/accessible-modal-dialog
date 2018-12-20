@@ -101,9 +101,9 @@ Dialog.prototype.addEventListeners = function(openDialogSel, closeDialogSel) {
 	// rather than adding to each element. this allows for dynamically
 	// created elements to also open/close the dialog.
 	document.addEventListener('click', function(e) {
-		if ( e.target.matches(openDialogSel) ) {
+		if ( e.target.closest(openDialogSel) ) {
 			Dialog.open();
-		} else if ( e.target.matches(closeDialogSel) ) {
+		} else if ( e.target.closest(closeDialogSel) ) {
 			Dialog.close();
 		}
 	});
