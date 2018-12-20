@@ -48,8 +48,11 @@ Dialog.prototype.close = function() {
 Dialog.prototype._handleKeyDown = function(e) {
 
 	var Dialog = this;
-	var KEY_TAB = 9;
-	var KEY_ESC = 27;
+	
+	if (e.key === undefined) {
+		// polyfill for older browsers using Event.keyCode
+		e.key = e.keyCode === 9 ? 'Tab' : e.keyCode === 27 ? 'Escape' : '';
+	}
 
 	function handleBackwardTab() {
 		if ( document.activeElement === Dialog.firstFocusableEl ) {
@@ -65,7 +68,7 @@ Dialog.prototype._handleKeyDown = function(e) {
 	}
 
 	switch(e.keyCode) {
-	case KEY_TAB:
+	case 'Tab':
 		if ( Dialog.focusableEls.length === 1 ) {
 			e.preventDefault();
 			break;
@@ -76,7 +79,7 @@ Dialog.prototype._handleKeyDown = function(e) {
 			handleForwardTab();
 		}
 		break;
-	case KEY_ESC:
+	case 'Escape':
 		Dialog.close();
 		break;
 	default:
