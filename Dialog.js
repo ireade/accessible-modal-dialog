@@ -71,7 +71,7 @@ Dialog.prototype._handleKeyDown = function(e) {
 		}
 	}
 
-	switch(e.keyCode) {
+	switch(e.key) {
 	case 'Tab':
 		if ( Dialog.focusableEls.length === 1 ) {
 			e.preventDefault();
