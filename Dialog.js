@@ -31,6 +31,8 @@ Dialog.prototype.open = function() {
 
 	this.focusedElBeforeOpen = document.activeElement;
 
+	document.body.classList.add('has-dialog');
+
 	this.firstFocusableEl.focus();
 };
 
@@ -38,6 +40,8 @@ Dialog.prototype.close = function() {
 
 	this.dialogEl.setAttribute('aria-hidden', true);
 	this.overlayEl.setAttribute('aria-hidden', true);
+
+	document.body.classList.remove('has-dialog');
 
 	if ( this.focusedElBeforeOpen ) {
 		this.focusedElBeforeOpen.focus();
